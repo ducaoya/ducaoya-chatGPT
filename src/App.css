@@ -1,0 +1,137 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.main {
+  width: 100vw;
+  height: 100vh;
+  max-width: 1350px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* InputKey */
+.input_key {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.input_key .input {
+  max-width: 200px;
+  margin: 20px 20px 10px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* chat */
+.chat {
+  flex: 1;
+  border: 1px rgb(212, 212, 212) solid;
+  border-radius: 5px;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat .list {
+  flex: 1;
+  border: 1px rgb(212, 212, 212) solid;
+  border-radius: 5px;
+  margin: 20px 20px 10px;
+  overflow: auto;
+  overflow: overlay;
+}
+
+.chat .input_box {
+  border: 1px rgb(212, 212, 212) solid;
+  border-radius: 5px;
+  margin: 20px;
+  height: 20%;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chat .input_box .input {
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: aliceblue;
+  flex: 1;
+}
+
+.chat .input_box .input:focus:focus {
+  border: 0;
+  box-shadow: none;
+}
+
+.chat .input_box .btn {
+  margin: 0 10px 10px 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: aliceblue;
+}
+
+/* MsgItem */
+.msg_item {
+  display: flex;
+}
+
+.user {
+  flex-direction: row-reverse;
+}
+
+.assistant {
+  justify-content: flex-start;
+}
+
+.msg_item .role {
+  font-size: 30px;
+  margin: 0 10px;
+}
+
+.msg_item .msg {
+  flex: 1;
+  display: flex;
+  padding: 10px 0px;
+}
+
+.user .msg {
+  justify-content: flex-end;
+}
+
+.msg_item .msg .msg_box {
+  max-width: 80%;
+  background-color: rgba(117, 117, 117, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+.user .msg {
+  text-align: right;
+}
+
+/* loading */
+.loading {
+  width: 30px;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
