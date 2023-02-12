@@ -39,12 +39,18 @@ export async function createAPI(key: string) {
 
 /**
  * 发送信息
+ * @param key api key
  * @param msg 发送的消息
  * @param opt 参数
  * @returns
  */
-export async function sendMessage(msg: string, opt?: SendMsgOption) {
+export async function sendMessage(
+  key: string,
+  msg: string,
+  opt?: SendMsgOption
+) {
   return instance.post("/message", {
+    key,
     msg,
     opt,
   });

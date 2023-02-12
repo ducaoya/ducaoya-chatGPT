@@ -5,10 +5,11 @@ import Msgitem from "../MsgItem";
 import loadingSVG from "../../assets/loading.svg";
 
 interface Props {
+  apiKey: string;
   hasApi: boolean;
 }
 
-function Chat({ hasApi }: Props) {
+function Chat({ apiKey, hasApi }: Props) {
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState<ChatMessage[]>([]);
   const [lastMsg, setLastMsg] = useState<ChatMessage | undefined>();
@@ -47,7 +48,7 @@ function Chat({ hasApi }: Props) {
 
       setLoading(true);
 
-      sendMessage(msg, opt)
+      sendMessage(apiKey, msg, opt)
         .then((res) => {
           setLoading(false);
           const { status, data } = res;

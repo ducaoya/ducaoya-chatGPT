@@ -3,29 +3,35 @@ import { Input, Button, message } from "antd";
 import { createAPI } from "../../http/chat";
 
 interface Props {
-  setHasApi: (hasApi: boolean) => void;
+  setOpt: (opt: { hasApi: boolean; key: string }) => void;
 }
 
-function InputKey({ setHasApi }: Props) {
+function InputKey({ setOpt }: Props) {
   const [value, setValue] = useState("");
 
   const setKey = () => {
+    const opt = {
+      hasApi: false,
+      key: "",
+    };
     if (value) {
-      console.log(value);
-
       createAPI(value)
         .then((res) => {
           if (res.status === 200 && res.data.result === "ok") {
-            setHasApi(true);
+            opt.hasApi = true;
+            opt.key = value;
             message.success("创建 API 成功！");
           } else {
-            setHasApi(false);
+            opt.hasApi = false;
             message.error("创建 API 失败！" + res.data.msg);
           }
         })
         .catch((e) => {
-          setHasApi(false);
+          opt.hasApi = false;
           message.error("创建 API 失败！");
+        })
+        .finally(() => {
+          setOpt(opt);
         });
     }
   };
