@@ -21,7 +21,7 @@ export interface SendMsgOption {
 }
 
 const instance = axios.create({
-  baseURL: "https://ducaoya-chat-gpt-koa-2646.vercel.app",
+  baseURL: "https://ducaoya-chat-gpt-koa.vercel.app",
 });
 
 /**
